@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import SocialSignIn from '@/components/auth/SocialSignIn.vue'
-import { Lock, Right, Message } from '@element-plus/icons-vue'
+import { User, Lock, Right, Message } from '@element-plus/icons-vue'
 import { reactive } from 'vue'
 
 // do not use same name with ref
 const form = reactive({
+  fullName: '',
   email: '',
-  password: '',
-  remember: true
+  password: ''
 })
 
 const onSubmit = () => {
@@ -21,9 +21,12 @@ const onSubmit = () => {
       <img src="@/assets/images/logo.svg" alt="TaskHub" style="width: 40px; height: 40px" />
       <h1 class="text-primary">TaskHub</h1>
     </div>
-    <p class="mb-2 text-sm font-semibold text-gray-500">Log in to continue</p>
+    <p class="mb-2 text-sm font-semibold text-gray-500">Sign Up</p>
 
     <el-form :model="form" class="mb-4">
+      <el-form-item>
+        <el-input v-model="form.fullName" placeholder="Enter your name" :prefix-icon="User" />
+      </el-form-item>
       <el-form-item>
         <el-input v-model="form.email" placeholder="Enter your email" :prefix-icon="Message" />
       </el-form-item>
@@ -37,21 +40,15 @@ const onSubmit = () => {
         />
       </el-form-item>
       <el-form-item>
-        <div class="flex items-center gap-2">
-          <el-switch v-model="form.remember" />
-          <span>Remember?</span>
-        </div>
-      </el-form-item>
-      <el-form-item>
         <el-button type="primary" @click="onSubmit" class="w-full">
-          Login <ElIcon class="el-icon--right"><Right /></ElIcon>
+          Sign Up <ElIcon class="el-icon--right"><Right /></ElIcon>
         </el-button>
       </el-form-item>
     </el-form>
 
     <SocialSignIn />
 
-    <p class="text-xs mt-4">Don't have an account? <RouterLink to="/signup">Sign Up</RouterLink></p>
+    <p class="text-xs mt-4">Already have an account? <RouterLink to="/login">Login</RouterLink></p>
   </ElCard>
 </template>
 

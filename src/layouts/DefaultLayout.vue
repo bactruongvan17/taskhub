@@ -1,15 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderDefaultLayout from '@/components/layout/default/HeaderDefaultLayout.vue'
+</script>
 
 <template>
-  <header>
-    <h1>This is header</h1>
-  </header>
-  <main>
+  <HeaderDefaultLayout />
+  <main class="p-4">
     <slot />
   </main>
-  <footer>
-    <h1>This is footer</h1>
-  </footer>
 </template>
 
 <style scoped></style>

@@ -33,3 +33,11 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+a {
+  color: #0c66e4;
+}
+
+a:hover {
+  text-decoration: underline;
+}
