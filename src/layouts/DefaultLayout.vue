@@ -4,7 +4,7 @@ import HeaderDefaultLayout from '@/components/layout/default/HeaderDefaultLayout
 
 <template>
   <HeaderDefaultLayout />
-  <main class="p-4">
+  <main class="px-2 py-4">
     <slot />
   </main>
 </template>

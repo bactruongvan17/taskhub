@@ -2,8 +2,7 @@
 
 <template>
   <div>
-    <h1>This is homepage</h1>
-    <RouterLink to="/workspace/1/boards">Go to boards</RouterLink>
+    <h1>Boards</h1>
   </div>
 </template>
 

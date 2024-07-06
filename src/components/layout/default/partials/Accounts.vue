@@ -14,7 +14,7 @@ const avatar = computed(() => {
 </script>
 
 <template>
-  <el-popover placement="bottom" :width="250" trigger="click">
+  <el-popover placement="bottom" :width="250" trigger="click" popper-class="popover-account">
     <template #reference>
       <el-avatar :size="30" class="cursor-pointer avatar-icon">{{ avatar }}</el-avatar>
     </template>
@@ -43,14 +43,20 @@ const avatar = computed(() => {
   font-weight: bold;
 }
 
+.popover-account {
+  padding: 4px 0 !important;
+}
+
 .popup-account {
   ul {
     li {
       cursor: pointer;
       padding: 8px 12px;
+      color: var(--el-text-color-regular);
 
       &:hover {
-        background-color: var(--el-fill-color-light);
+        background-color: var(--el-color-primary-light-9);
+        color: var(--el-color-primary);
       }
     }
   }

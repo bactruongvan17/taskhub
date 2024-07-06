@@ -2,6 +2,11 @@ import HomePage from '@/views/HomePage.vue'
 import LoginPage from '@/views/auth/LoginPage.vue'
 import SignUpPage from '@/views/auth/SignUpPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import WorkspaceBoards from '@/views/workspaces/WorkspaceBoards.vue'
+import WorksapceMembers from '@/views/workspaces/WorkspaceMembers.vue'
+import WorkspaceSettings from '@/views/workspaces/WorkspaceSettings.vue'
+import { useLayoutStore } from '@/stores/layout'
+import { LayoutTypes } from '@/types/data'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +16,7 @@ const router = createRouter({
       name: 'home',
       component: HomePage,
       meta: {
-        requireAuth: true
+        layout: LayoutTypes.DEFAULT
       }
     },
     {
@@ -19,7 +24,7 @@ const router = createRouter({
       name: 'login',
       component: LoginPage,
       meta: {
-        requireAuth: false
+        layout: LayoutTypes.AUTH
       }
     },
     {
@@ -27,14 +32,39 @@ const router = createRouter({
       name: 'signup',
       component: SignUpPage,
       meta: {
-        requireAuth: false
+        layout: LayoutTypes.AUTH
+      }
+    },
+    {
+      path: '/workspace/:id/boards',
+      name: 'boards',
+      component: WorkspaceBoards,
+      meta: {
+        layout: LayoutTypes.WORKSPACE
+      }
+    },
+    {
+      path: '/workspace/:id/members',
+      name: 'members',
+      component: WorksapceMembers,
+      meta: {
+        layout: LayoutTypes.WORKSPACE
+      }
+    },
+    {
+      path: '/workspace/:id/settings',
+      name: 'settings',
+      component: WorkspaceSettings,
+      meta: {
+        layout: LayoutTypes.WORKSPACE
       }
     }
   ]
 })
 
-router.beforeEach((to) => {
+router.beforeEach((to, from) => {
   const isAuthenticated = true
+
   if (!isAuthenticated) {
     if (to.name === 'login' || to.name === 'signup') {
       return

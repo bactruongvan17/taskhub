@@ -5,6 +5,9 @@ import Settings from './partials/Settings.vue'
 import Notifications from './partials/Notifications.vue'
 import Accounts from './partials/Accounts.vue'
 import DarkMode from './partials/DarkMode.vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
 </script>
 
 <template>
@@ -18,7 +21,7 @@ import DarkMode from './partials/DarkMode.vue'
 
       <!-- Menu -->
       <div class="flex items-center gap-1">
-        <el-button text>Home</el-button>
+        <el-button text @click="router.push('/')">Home</el-button>
         <el-dropdown trigger="click">
           <ElButton text>
             Workspaces<el-icon class="el-icon--right"><ArrowDown /></el-icon>
