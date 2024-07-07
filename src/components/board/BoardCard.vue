@@ -1,16 +1,5 @@
 <script setup lang="ts">
-import { VISIBILITY_TEXT } from '@/data/const'
-import { visibilityTypes, type Board } from '@/types/board'
-import {
-  faCog,
-  faEarthAsia,
-  faLock,
-  faPeopleGroup,
-  faUserLock,
-  faUsers,
-  faUsersViewfinder
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { type Board } from '@/types/board'
 import { filename } from 'pathe/utils'
 import { computed } from 'vue'
 
